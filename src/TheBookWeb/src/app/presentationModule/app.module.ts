@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MdlModule } from 'angular2-mdl';
+
 
 import { AppComponent } from './appComponent/app.component';
 import { SearchComponent } from './searchComponent/search.component';
@@ -15,7 +17,7 @@ import './assets/styles/material.min.css';
 import './assets/styles/styles.css';
 
 @NgModule({
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpModule, MdlModule],
     declarations: [AppComponent, SearchComponent, ViewComponent, AddComponent],
     bootstrap:[AppComponent]
 })

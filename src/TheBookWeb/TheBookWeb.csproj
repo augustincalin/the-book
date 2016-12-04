@@ -10,6 +10,7 @@
     <Compile Include="**\*.cs" Exclude="$(GlobalExclude)" />
     <EmbeddedResource Include="**\*.resx" Exclude="$(GlobalExclude)" />
     <Folder Include="src\app\presentationModule\assets\images\" />
+    <Folder Include="src\app\presentationModule\assets\scripts\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>

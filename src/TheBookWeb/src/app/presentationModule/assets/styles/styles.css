@@ -152,9 +152,9 @@ img.article-image {
 }
 
 
-.inputSearch{
-    text-align:center;
-    font-size:30px;
+.inputSearch .mdl-textfield__input {
+    text-align: center;
+    font-size: 30px;
 }
 
 .formSearch{
