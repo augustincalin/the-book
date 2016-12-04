@@ -1,0 +1,22 @@
+﻿import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+
+import { AppComponent } from './appComponent/app.component';
+import { SearchComponent } from './searchComponent/search.component';
+import { ViewComponent } from './viewComponent/view.component';
+import { AddComponent } from './addComponent/add.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import './assets/styles/material.min.css';
+import './assets/styles/styles.css';
+
+@NgModule({
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpModule],
+    declarations: [AppComponent, SearchComponent, ViewComponent, AddComponent],
+    bootstrap:[AppComponent]
+})
+export class AppModule{}
