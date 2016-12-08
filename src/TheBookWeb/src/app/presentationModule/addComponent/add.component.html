@@ -5,18 +5,18 @@
         </p>
     </div>
     <div class="mdl-cell mdl-cell--12-col">
-        <form action="#">
-            <mdl-textfield type="text" label="title" [(ngModel)]="text3" floating-label name="title" class="mdl-cell mdl-cell--12-col"></mdl-textfield>
+        <form (ngSubmit)="onSubmit()" #addForm="ngForm">
+            <mdl-textfield type="text" label="title" [(ngModel)]="model.title" floating-label name="title" class="mdl-cell mdl-cell--12-col"></mdl-textfield>
 
-            <mdl-textfield label="body" [(ngModel)]="text5" rows="25" floating-label name="body" class="mdl-cell mdl-cell--12-col"></mdl-textfield>
+            <mdl-textfield label="body" [(ngModel)]="model.body" rows="20" floating-label name="body" class="mdl-cell mdl-cell--12-col"></mdl-textfield>
 
             <p>
-                <button mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple name="send">
-                    Submit
+                <button mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple name="send" type="submit">
+                    Save
                 </button>
 
             </p>
         </form>
     </div>
-
+    
 </div>

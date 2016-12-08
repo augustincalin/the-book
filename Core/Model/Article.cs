@@ -8,7 +8,7 @@ namespace Core.Model
     {
         public Article()
         {
-            Comment = new HashSet<Comment>();
+            Comments = new HashSet<Comment>();
         }
         public string Title { get; set; }
         public string Body { get; set; }
@@ -17,6 +17,6 @@ namespace Core.Model
         public DateTime? DateModification { get; set; }
         public bool? IsDeleted { get; set; }
 
-        public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

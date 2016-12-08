@@ -37,8 +37,7 @@
 
 .is-compact .portfolio-logo {
     height: 50px;
-    width: 50px;
-    margin-top: 7px;
+    width: 150px;
 }
 
 .portfolio-navigation-row {
@@ -163,4 +162,8 @@ img.article-image {
 
 .divSearch {
     width: 100%;
+}
+
+.mdl-snackbar{
+    background-color:red;
 }

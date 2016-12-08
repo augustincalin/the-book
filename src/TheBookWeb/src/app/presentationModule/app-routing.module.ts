@@ -11,7 +11,8 @@ const appRoutes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'view/:id', component: ViewComponent },
     { path: 'add', component: AddComponent },
-    { path: '*', component: SearchComponent }
+    { path: '*', component: SearchComponent },
+    { path: 'edit/:id', component: AddComponent }
 
 ];
 @NgModule({

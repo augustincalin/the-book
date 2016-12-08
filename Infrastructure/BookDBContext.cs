@@ -38,7 +38,7 @@ namespace Infrastructure
                 entity.Property(e => e.Body).HasMaxLength(500);
 
                 entity.HasOne(d => d.Article)
-                    .WithMany(p => p.Comment)
+                    .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.ArticleId)
                     .HasConstraintName("FK_Comment_Article");
             });

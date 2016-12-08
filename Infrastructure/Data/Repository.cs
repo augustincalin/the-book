@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Infrastructure.Data
 {
-    class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _entities;
@@ -21,7 +21,7 @@ namespace Infrastructure.Data
 
         public void Add(TEntity entity)
         {
-            throw new NotImplementedException();
+            _entities.Add(entity);
         }
 
         public TEntity Get(int id)
@@ -41,7 +41,7 @@ namespace Infrastructure.Data
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
     }
 }
