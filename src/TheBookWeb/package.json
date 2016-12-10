@@ -39,6 +39,7 @@
     "angular2-mdl": "^2.6.0",
     "angularjs-toaster": "^2.1.0",
     "core-js": "2.4.1",
+    "lodash": "^4.17.2",
     "reflect-metadata": "0.1.8",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.26"

@@ -5,8 +5,8 @@ namespace Infrastructure
 {
     public partial class BookDBContext : DbContext
     {
-        public virtual DbSet<Article> Article { get; set; }
-        public virtual DbSet<Comment> Comment { get; set; }
+        public DbSet<Article> Article { get; set; }
+        public DbSet<Comment> Comment { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

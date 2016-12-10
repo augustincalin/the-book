@@ -10,7 +10,7 @@ namespace Infrastructure.Data
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
-        private readonly DbContext _context;
+        protected readonly DbContext _context;
         private readonly DbSet<TEntity> _entities;
 
         public Repository(DbContext context)
@@ -19,7 +19,7 @@ namespace Infrastructure.Data
             _entities = _context.Set<TEntity>();
         }
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             _entities.Add(entity);
         }

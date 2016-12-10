@@ -40,8 +40,10 @@ namespace TheBookWeb
             services.AddMvc();
             services.AddDbContext<BookDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HomeConnection")));
             services.AddScoped<DbContext, BookDBContext>();
-            services.AddScoped<IRepository<Article>, Repository<Article>>();
+            services.AddScoped<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IRepository<Comment>, Repository<Comment>>();
             services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<ICommentService, CommentService>();
 
         }
 

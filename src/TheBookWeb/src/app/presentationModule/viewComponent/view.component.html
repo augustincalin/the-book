@@ -1,1 +1,49 @@
-﻿<h2>View a page</h2>
+﻿<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--9-col">
+        <h1>{{model?.title}}</h1>
+        <div [innerHtml]="model?.body"></div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--6-col textCenter">
+                <img src="../assets/images/like-big.png" />
+            </div>
+            <div class="mdl-cell mdl-cell--6-col textCenter">
+                <img src="../assets/images/dislike-big.png" />
+            </div>
+            <div class="mdl-cell mdl-cell--6-col textCenter">
+                {{likes}}
+            </div>
+            <div class="mdl-cell mdl-cell--6-col textCenter">
+                {{dislikes}}
+            </div>
+        </div>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <mdl-textfield type="text" [(ngModel)]="myMessage" label="Say something" rows="3" style="width:100%;"></mdl-textfield>
+            </div>
+            <div class="mdl-cell mdl-cell--3-col textLeft">
+                <button mdl-button mdl-button-type="fab" mdl-ripple mdl-tooltip-large="Is this Article usefull?" (click)="articleOk()">
+                    <img src="../assets/images/like-medium.png" />
+                </button>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col textCenter">
+            </div>
+            <div class="mdl-cell mdl-cell--3-col textRight">
+                <button mdl-button mdl-button-type="fab" mdl-ripple mdl-tooltip-large="Is this Article wrong?" (click)="articleNotOk()">
+                    <img src="../assets/images/dislike-medium.png" />
+                </button>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <h5>What others say:</h5>
+                <p *ngFor="let comment of model?.comments">
+                    <span>
+                        <img *ngIf="comment.type==1" src="../assets/images/like-small.png" />
+                        <img *ngIf="comment.type==2" src="../assets/images/dislike-small.png" />
+                    </span><span>{{comment.author}}: </span>
+                    <span style="font-style:italic;">"{{comment.body}}"</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

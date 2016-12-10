@@ -3,37 +3,18 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Headers, RequestOptions } from '@angular/http';
 
-import { ArticleShortVM } from '../models/articleShortVM.model';
-import { ArticleVM } from '../models/articleVM.model';
+import { CommentVM } from '../models/commentVM.model';
 
 @Injectable()
-export class ArticleService {
-    private articleUrl: string = '/api/article';
+export class CommentService {
+    private commentUrl: string = '/api/comment';
+    constructor(private http: Http) { }
 
-    constructor(private http: Http) { };
-
-    addArticle(article: ArticleShortVM): Observable<ArticleShortVM> {
+    addComment(comment: CommentVM): Observable<CommentVM>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.articleUrl, article, options)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
-
-    updateArticle(id:number, article: ArticleShortVM): Observable<ArticleShortVM> {
-        let bodyString = JSON.stringify(article);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.put(`${this.articleUrl}/${id}`, article, options)
-            .map(this.extractData)
-            .catch(this.handleError)
-
-    }
-
-    getArticle(id: number): Observable<ArticleVM> {
-        return this.http.get(`${this.articleUrl}/${id}`)
+        return this.http.post(this.commentUrl, comment, options)
             .map(this.extractData)
             .catch(this.handleError);
     }

@@ -16,8 +16,11 @@
   <ItemGroup>
     <None Include="src\app\presentationModule\addComponent\add.component.ts" />
     <None Include="src\app\presentationModule\app-routing.module.ts" />
+    <None Include="src\app\presentationModule\models\articleShortVM.model.ts" />
     <None Include="src\app\presentationModule\models\articleVM.model.ts" />
+    <None Include="src\app\presentationModule\models\commentVM.model.ts" />
     <None Include="src\app\presentationModule\services\article.service.ts" />
+    <None Include="src\app\presentationModule\services\comment.service.ts" />
     <None Include="src\app\presentationModule\viewComponent\view.component.ts" />
     <None Include="src\app\presentationModule\searchComponent\search.component.ts" />
     <None Include="src\main.ts" />

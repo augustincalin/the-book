@@ -167,3 +167,31 @@ img.article-image {
 .mdl-snackbar{
     background-color:red;
 }
+
+.textCenter{
+    text-align:center;
+}
+
+.textLeft{
+    text-align:left;
+}
+
+.textRight{
+    text-align:right;
+}
+
+.marginBottomZero{
+    margin-bottom:0;
+}
+
+.marginTopZero{
+    margin-top:0;
+}
+
+.paddingTopZero{
+    padding-top:0;
+}
+
+.paddingBottomZero{
+    padding-bottom:0;
+}

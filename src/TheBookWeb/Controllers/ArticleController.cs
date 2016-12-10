@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TheBookWeb.Interfaces;
 using TheBookWeb.Models;
 using Core.Model;
+using Newtonsoft.Json.Serialization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,10 +28,15 @@ namespace TheBookWeb.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}", Name ="GetArticle")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_articleService.GetArticle(id));
+            return new JsonResult(_articleService.GetArticle(id), new Newtonsoft.Json.JsonSerializerSettings {
+                MaxDepth=10,
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+                
+            });
         }
 
         // POST api/values

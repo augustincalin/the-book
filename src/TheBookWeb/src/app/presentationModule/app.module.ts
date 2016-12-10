@@ -12,6 +12,7 @@ import { ViewComponent } from './viewComponent/view.component';
 import { AddComponent } from './addComponent/add.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ArticleService } from './services/article.service';
+import { CommentService } from './services/comment.service';
 
 
 
@@ -22,7 +23,7 @@ import './assets/styles/styles.css';
 @NgModule({
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpModule, MdlModule],
     declarations: [AppComponent, SearchComponent, ViewComponent, AddComponent],
-    providers: [ArticleService],
+    providers: [ArticleService, CommentService],
     bootstrap:[AppComponent]
 })
 export class AppModule{}

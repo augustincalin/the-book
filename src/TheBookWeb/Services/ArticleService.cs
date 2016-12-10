@@ -10,9 +10,9 @@ namespace TheBookWeb.Services
 {
     public class ArticleService : IArticleService
     {
-        private readonly IRepository<Article> _articleRepository;
+        private readonly IArticleRepository _articleRepository;
 
-        public ArticleService(IRepository<Article> articleRepository)
+        public ArticleService(IArticleRepository articleRepository)
         {
             _articleRepository = articleRepository;
         }
@@ -39,7 +39,8 @@ namespace TheBookWeb.Services
 
         public Article GetArticle(int id)
         {
-            return _articleRepository.Get(id);
+            Article article = _articleRepository.LoadArticle(id);
+            return article;
         }
 
         public Article UpdateArticle(int id, string title, string body)
