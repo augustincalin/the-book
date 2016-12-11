@@ -1,6 +1,9 @@
 ﻿<div class="mdl-grid">
     <div class="mdl-cell mdl-cell--9-col">
-        <h1>{{model?.title}}</h1>
+        <h1>{{model?.title}} <button mdl-button mdl-button-type="mini-fab" class="mdl-cell--2-col" (click)="gotoEdit()">
+    <mdl-icon>create</mdl-icon>
+</button></h1>
+
         <div [innerHtml]="model?.body"></div>
     </div>
     <div class="mdl-cell mdl-cell--3-col">
@@ -28,6 +31,7 @@
                 </button>
             </div>
             <div class="mdl-cell mdl-cell--6-col textCenter">
+
             </div>
             <div class="mdl-cell mdl-cell--3-col textRight">
                 <button mdl-button mdl-button-type="fab" mdl-ripple mdl-tooltip-large="Is this Article wrong?" (click)="articleNotOk()">

@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { MdlSnackbarService } from 'angular2-mdl';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 
 import { ArticleService } from '../services/article.service';
@@ -22,7 +22,8 @@ export class ViewComponent implements OnInit {
     constructor(private articleService: ArticleService,
         private activatedRoute: ActivatedRoute,
         private commentService: CommentService,
-        private mdlSnackbarService: MdlSnackbarService) { };
+        private mdlSnackbarService: MdlSnackbarService,
+        private router:Router) { };
 
     articleOk() {
         let comment: CommentVM = new CommentVM();
@@ -44,6 +45,10 @@ export class ViewComponent implements OnInit {
             },
             error => this.error = <any>error
         );
+        }
+
+    gotoEdit() {
+        this.router.navigate(['/edit', this.id]);
     }
 
     articleNotOk() {

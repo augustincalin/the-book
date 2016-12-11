@@ -1,4 +1,13 @@
 ﻿<div class="mdl-grid portfolio-max-width">
-        <mdl-textfield type="text" label="search" [(ngModel)]="text3" floating-label class="mdl-cell mdl-cell--12-col"></mdl-textfield>
+    <mdl-textfield type="text" label="search..." [(ngModel)]="term" floating-label class="mdl-cell mdl-cell--10-col" (keyup)="onKey($event)"></mdl-textfield>
 
+    <button mdl-button mdl-button-type="mini-fab" class="mdl-cell--2-col" (click)="search()">
+        <mdl-icon>search</mdl-icon>
+    </button>
+
+    <div *ngFor="let result of results" class="mdl-cell mdl-cell--12-col">
+        <h6><a [routerLink]="['/view', result._source.id]">{{result._source.title}}</a></h6>
+        <p>{{result._source.preview_body}}</p>
+        <hr />
+    </div>
 </div>

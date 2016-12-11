@@ -13,6 +13,9 @@ import { AddComponent } from './addComponent/add.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ArticleService } from './services/article.service';
 import { CommentService } from './services/comment.service';
+import { EsService } from './services/es.service';
+import { CustomReuseStrategy } from './common/custom-reuse-strategy';
+import { RouteReuseStrategy } from "@angular/router";
 
 
 
@@ -23,7 +26,7 @@ import './assets/styles/styles.css';
 @NgModule({
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpModule, MdlModule],
     declarations: [AppComponent, SearchComponent, ViewComponent, AddComponent],
-    providers: [ArticleService, CommentService],
+    providers: [ArticleService, CommentService, EsService, {provide:RouteReuseStrategy, useClass:CustomReuseStrategy}],
     bootstrap:[AppComponent]
 })
 export class AppModule{}
