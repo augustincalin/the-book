@@ -8,9 +8,9 @@ namespace TheBookWeb.Interfaces
 {
     public interface IArticleService
     {
-        Article CreateArticle(string title, string body);
+        Article CreateArticle(string author, string title, string body);
         Article GetArticle(int id);
 
-        Article UpdateArticle(int id, string title, string body);
+        Article UpdateArticle(int id, string author, string title, string body);
     }
 }

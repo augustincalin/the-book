@@ -47,7 +47,7 @@ namespace TheBookWeb.Controllers
             {
                 return BadRequest();
             }
-            var savedArticle = _articleService.CreateArticle(article.Title, article.Body);
+            var savedArticle = _articleService.CreateArticle(User.Identity.Name, article.Title, article.Body);
             return Ok(savedArticle);
         }
 
@@ -55,7 +55,7 @@ namespace TheBookWeb.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]ArticleViewModel article)
         {
-            return Ok(_articleService.UpdateArticle(id, article.Title, article.Body));
+            return Ok(_articleService.UpdateArticle(id, User.Identity.Name, article.Title, article.Body));
         }
 
         // DELETE api/values/5

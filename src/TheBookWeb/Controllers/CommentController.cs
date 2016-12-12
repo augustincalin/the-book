@@ -20,12 +20,6 @@ namespace TheBookWeb.Controllers
         {
             _commentService = commentService;
         }
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
         // POST api/values
         [HttpPost]
@@ -35,6 +29,7 @@ namespace TheBookWeb.Controllers
             {
                 return BadRequest();
             }
+            comment.Author = User.Identity.Name;
             var savedComment = _commentService.CreateComment(comment);
             return Ok(savedComment);
         }

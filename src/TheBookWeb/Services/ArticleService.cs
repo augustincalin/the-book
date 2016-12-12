@@ -17,7 +17,7 @@ namespace TheBookWeb.Services
             _articleRepository = articleRepository;
         }
 
-        public Article CreateArticle(string title, string body)
+        public Article CreateArticle(string author, string title, string body)
         {
             DateTime now = DateTime.Now;
 
@@ -25,7 +25,7 @@ namespace TheBookWeb.Services
             {
                 Title = title,
                 Body = body,
-                Author = "AUTHOR",
+                Author = author,
                 DateCreation = now,
                 DateModification = now,
                 IsDeleted = false
@@ -43,12 +43,12 @@ namespace TheBookWeb.Services
             return article;
         }
 
-        public Article UpdateArticle(int id, string title, string body)
+        public Article UpdateArticle(int id, string author, string title, string body)
         {
             Article article = _articleRepository.Get(id);
             article.Title = title;
             article.Body = body;
-            article.Author = "UPD_AUTHOR";
+            article.Author = author;
             article.DateModification = DateTime.Now;
             _articleRepository.Save();
             return article;
