@@ -1,13 +1,13 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { EsService } from '../services/es.service';
 
 @Component({
     templateUrl: './search.component.html'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
     constructor(private esService: EsService) { }
     term: string;
-    results: any[];
+    results:any;
     error: string = '';
 
     search() {
@@ -22,4 +22,12 @@ export class SearchComponent {
             this.search();
         }
     }
+
+    ngOnInit() {
+        this.esService.getCachedData().subscribe(res => {
+            if(null != res)
+            this.results = res.hits.hits;
+        });
+    }
+
 }

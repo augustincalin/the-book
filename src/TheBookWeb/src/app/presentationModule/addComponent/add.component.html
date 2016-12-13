@@ -1,22 +1,38 @@
-﻿<div class="mdl-grid portfolio-max-width">
-    <div class="mdl-cell mdl-cell--12-col">
-        <p>
-            Here you can add a new page in the Book
-        </p>
-    </div>
-    <div class="mdl-cell mdl-cell--12-col">
+﻿<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col"></div>
+    <div class="mdl-cell mdl-cell--8-col">
         <form (ngSubmit)="onSubmit()" #addForm="ngForm">
-            <mdl-textfield type="text" label="title" [(ngModel)]="model.title" floating-label name="title" class="mdl-cell mdl-cell--12-col"></mdl-textfield>
-
-            <mdl-textfield label="body" [(ngModel)]="model.body" rows="20" floating-label name="body" class="mdl-cell mdl-cell--12-col"></mdl-textfield>
+            <mdl-textfield type="text"
+                           label="title"
+                           [(ngModel)]="model.title"
+                           floating-label
+                           name="title"
+                           class="mdl-cell mdl-cell--12-col"
+                           required
+                           #title="ngModel">
+            </mdl-textfield>
+            
+            <mdl-textfield label="body"
+                           [(ngModel)]="model.body"
+                           rows="20"
+                           floating-label
+                           name="body"
+                           class="mdl-cell mdl-cell--12-col"
+                           required
+                           #body="ngModel">
+            </mdl-textfield>
 
             <p>
-                <button mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple name="send" type="submit">
-                    Save
-                </button>
-
+                <button mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple name="send" type="submit">Save</button>
             </p>
         </form>
     </div>
-    
+    <div class="mdl-cell mdl-cell--2-col">
+        <div [hidden]="title.valid || title.pristine">
+            Title is required
+        </div>
+        <div [hidden]="body.valid || body.pristine">
+            Body is required
+        </div>
+    </div>
 </div>

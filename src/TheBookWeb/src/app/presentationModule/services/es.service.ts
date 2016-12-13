@@ -8,9 +8,10 @@ import { EsArticle } from '../models/esArticle.model';
 @Injectable()
 export class EsService {
     private commentUrl: string = 'http://alien:9200/library/_search';
+    private cachedData: any;
     constructor(private http: Http) { }
 
-    getResults(term: string): Observable<any>{
+    getResults(term: string): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         let query = `{
@@ -28,9 +29,18 @@ export class EsService {
                 }
               }
             }`;
+
         return this.http.post(this.commentUrl, query, options)
             .map(this.extractData)
+            .do(val => {
+                this.cachedData = val;
+            })
+            .publishReplay(1)
+            .refCount()
             .catch(this.handleError);
+    }
+    getCachedData() {
+        return Observable.of(this.cachedData);
     }
 
     private extractData(res: Response) {
