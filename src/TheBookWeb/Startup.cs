@@ -37,6 +37,11 @@ namespace TheBookWeb
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<IISOptions>(options =>
+            {
+                options.AutomaticAuthentication = true;
+                options.ForwardWindowsAuthentication = true;
+            });
             services.AddMvc();
             services.AddDbContext<BookDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HomeConnection")));
             services.AddScoped<DbContext, BookDBContext>();
